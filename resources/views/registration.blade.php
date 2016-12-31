@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
     <!-- Header -->
     <header>
         <div class="container">
@@ -26,26 +26,26 @@
                     <h2>Registration</h2>
                      <h4 class="skills" id="countdown"></h4>
                     <hr class="star-primary">
-                    <form name="register_yourself" id="registrationForm" novalidate>
+                    <form name="register_yourself" id="registrationForm" novalidate action="{{url('/event/register')}}">
                     {{csrf_field()}}
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" class="form-control" placeholder="Name" id="reg_name" required data-validation-required-message="Please enter your name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <input type="email" class="form-control" placeholder="Email Address" id="reg_email" required data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <label>Contact Number</label>
+                                <input type="tel" class="form-control" placeholder="Phone/Cell Number to contact you" id="reg_phone" required data-validation-required-message="Please enter your contact number.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -57,14 +57,18 @@
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Date Of Birth</label>
-                                <input type="text" class="form-control" placeholder="Date of Birth" id="DOB">
+                                <div class="input-group date" data-provide="datepicker" >
+                                    <input type="text" class="form-control datepick" placeholder="Date of Birth" id="DOB">
+                                    <div class="input-group-addon" style="background: white;border: 0px white;">
+                                    <!-- <span class="glyphicon glyphicon-th"></span> -->
+                                   </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group form-controls">
                             <br>
-                                <select class="form-control" id="program">
+                                <select class="form-control select select2" id="program">
                                     <option value="0">Select Program</option>
                                     <option value="Day">Day</option>
                                     <option value="Evening">Evening</option>
@@ -88,7 +92,7 @@
                         <div class="row control-group">
                             <br>
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                 <select class="form-control" id="department">
+                                 <select class="form-control" id="intake">
                                     <option value="0">Select Intake</option>
                                     @for($i = 1;$i <= 30 ; $i++)
                                     <option value="{{$i}}">{{$i}}</option>
@@ -127,7 +131,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Facebook ID</label>
-                                <input type="text" class="form-control" placeholder="Let us know you.Wanna share your facebook profile with us?" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" class="form-control" placeholder="Let us know you.Wanna share your facebook profile with us?" id="fb_id" required data-validation-required-message="Please enter your name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -135,7 +139,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Register Me</button>
+                                <button type="button" class="btn btn-success btn-lg" id="sbmt">Register Me</button>
                             </div>
                         </div>
                     </form>
@@ -201,6 +205,8 @@
         </div>
     </section>
     <script type="text/javascript" src="/js/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="/js/register.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript">
           $("#countdown").countdown("2017/02/10", function(event) {
             $(this).text(event.strftime('%-m month%!m %-d day%!d %-H hour%!H %M min%!M remaining'));
