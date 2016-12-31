@@ -19,7 +19,7 @@
     </header>
 
     <!-- Portfolio Grid Section -->
-    <section id="registration">
+    <section id="register">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center intro-text">
@@ -27,6 +27,7 @@
                      <h4 class="skills" id="countdown"></h4>
                     <hr class="star-primary">
                     <form name="register_yourself" id="registrationForm" novalidate>
+                    {{csrf_field()}}
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Name</label>
@@ -61,28 +62,67 @@
                             </div>
                         </div>
                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Website</label>
-                                <input type="text" class="form-control" placeholder="Have your own website or blog?" id="website">
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Facebook ID</label>
-                                <input type="text" class="form-control" placeholder="Let us know you.Wanna share your facebook profile with us?" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group form-controls">
                             <br>
-                                <select class="form-control">
-                                    <option value="Day">Select Program</option>
+                                <select class="form-control" id="program">
+                                    <option value="0">Select Program</option>
                                     <option value="Day">Day</option>
                                     <option value="Evening">Evening</option>
                                 </select>
                             </div>
-
+                            <br>
+                        </div>
+                        <div class="row control-group">
+                            <br>
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                 <select class="form-control" id="department">
+                                    <option value="0">Select Department</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="BBA">BBA</option>
+                                    <option value="Textile">Textile</option>
+                                </select>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="row control-group">
+                            <br>
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                 <select class="form-control" id="department">
+                                    <option value="0">Select Intake</option>
+                                    @for($i = 1;$i <= 30 ; $i++)
+                                    <option value="{{$i}}">{{$i}}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Student ID Card Number</label>
+                                <input type="number" class="form-control" placeholder="Give us your Student ID card Number to verify that you are from BUBT" id="id_no" required data-validation-required-message="Student ID card Number">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Organization Name</label>
+                                <input type="text" class="form-control" placeholder="Current Organization you are working for" id="org_name" >
+                               
+                            </div>
+                        </div>
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Designation</label>
+                                <input type="text" class="form-control" placeholder="Current Designation in your Organization" id="designation" >
+                               
+                            </div>
+                        </div>
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Website</label>
+                                <input type="text" class="form-control" placeholder="Have your own website or blog?" id="website">
+                            </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
