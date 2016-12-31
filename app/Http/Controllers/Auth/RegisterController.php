@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Profile;
+use App\Models\Work;
+use App\Models\EducationalInfo;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -62,10 +65,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $json_arr = [ 'website' => $data['website'], 'fb' => $data['fb_id']];
+       $user_instance =(User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]));
+         Profile::create([
+            'user_id' => $user_instance['id'],
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'mobile' => $data['reg_phone'],
+            'present_address' => $data['present_address'],
+            'dob' => $data['DOB'],
+            'user_status' => 1,
+            'socials' => json_encode($json_arr),
+            'user_type' => 3,
         ]);
+         Work::create([
+            'user_id' => $user_instance['id'],
+            'organization_name' => $data['org_name'],
+            'designation' =>  $data['designation'],
+        ]);
+         EducationalInfo::create([
+            'user_id' => $user_instance['id'],
+            'program' => $data['program'],
+            'department' =>  $data['department'],
+            'intake' =>  $data['intake'],
+            'student_id' =>  $data['id_no'],
+        ]);
+         return $user_instance;
     }
 }

@@ -15,14 +15,11 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    @if (Auth::guest())
+                     @if (Auth::guest())
                     <li class="page-scroll">
-                        <a href="#register">Register</a>
+                        <a href="url('/register')">Register</a>
                     </li>
                     @endif
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
                    @if (Auth::guest())
                     <li class="">
                         <a href="{{ url('/login') }}">Login</a>
@@ -54,3 +51,6 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <!-- Header -->
+    <header style="background: white;padding-top: 100px;">
+    </header>

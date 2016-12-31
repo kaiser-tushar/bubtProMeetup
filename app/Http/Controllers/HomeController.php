@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function completeMyProfile(){
+        $data = cookie('data');
+        print_r($data->name);
+        die;
+    }
 }
