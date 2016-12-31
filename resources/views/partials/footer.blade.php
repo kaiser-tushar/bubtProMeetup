@@ -1,6 +1,6 @@
     <!-- Footer -->
     <footer class="text-center">
-        <div class="footer-above">
+        <!-- <div class="footer-above">
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
@@ -34,12 +34,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="footer-below">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2016
+                        Copyright &copy; BUBT Professionals {{date('Y')}}
                     </div>
                 </div>
             </div>
