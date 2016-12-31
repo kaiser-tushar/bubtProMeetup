@@ -40,13 +40,13 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Present Address</label>
-                                <textarea rows="5" class="form-control" placeholder="Present Address" id="present_address" name="present_address" ></textarea>
+                                <textarea rows="3" class="form-control" placeholder="Present Address" id="present_address" name="present_address" ></textarea>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <div class="input-group date" data-provide="datepicker" >
-                                    <input type="text" class="form-control" placeholder="Date of Birth" id="DOB" name="DOB" data-date-format="dd-mm-yyyy">
+                                <div class="input-group date" data-provide="datepicker" data-date="{{date('Y-m-d')}}" data-date-format="yyyy-mm-dd">
+                                    <input type="text" class="form-control" placeholder="Date of Birth" id="DOB" name="DOB" >
                                     <div class="input-group-addon" style="background: white;border: 0px white;">
                                     <!-- <span class="glyphicon glyphicon-th"></span> -->
                                    </div>
