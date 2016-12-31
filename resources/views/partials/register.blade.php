@@ -119,7 +119,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Facebook ID</label>
-                                <input type="text" class="form-control" placeholder="Let us know you.Wanna share your facebook profile with us?" id="fb_id" required data-validation-required-message="Please enter your name." name="fb_id">
+                                <input type="text" class="form-control" placeholder="Let us know you. Wanna share your facebook profile with us?" id="fb_id" required data-validation-required-message="Please enter your name." name="fb_id">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
