@@ -17,7 +17,7 @@
                     </li>
                     @if (Auth::guest())
                     <li class="page-scroll">
-                        <a href="#register">Register</a>
+                        <a href="{{url('register')}}">Register</a>
                     </li>
                     @endif
                     <li class="page-scroll">
