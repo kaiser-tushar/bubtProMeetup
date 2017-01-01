@@ -2,7 +2,6 @@
 
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
     <!-- Header -->
 
     <!-- Contact Section -->
@@ -50,7 +49,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button type="button" id="edit" class="btn btn-success btn-lg">Edit</button>
                             </div>
                         </div>
                     </form>
@@ -59,8 +58,6 @@
         </div>
         <?php } ?>
     </section>
-    <script type="text/javascript" src="/js/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="/js/register.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/js/profile.js"></script>
 
 @endsection

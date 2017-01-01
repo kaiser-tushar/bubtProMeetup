@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'ProfileController@index');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/completeMyProfile', 'HomeController@completeMyProfile');
 Route::post('/event/register', 'EventController@register');
