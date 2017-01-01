@@ -24,9 +24,9 @@ class ProfileController extends Controller
     public function index()
     { 
         $id = Auth::user()->id;
-        $profile = Profile::get()->where('user_id',$id) ;
-        $work = Work::get()->where('user_id',$id) ;
-        $educational_info = EducationalInfo::get()->where('user_id',$id) ;
+        $profile = Profile::where('user_id',$id)->first() ;
+        $work = Work::where('user_id',$id)->first() ;
+        $educational_info = EducationalInfo::where('user_id',$id)->first() ;
 
        
         return view('profile.index')->with(compact('profile','work','educational_info'));
