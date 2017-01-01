@@ -21,3 +21,4 @@ Route::get('/home', 'ProfileController@index');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/completeMyProfile', 'HomeController@completeMyProfile');
 Route::post('/event/register', 'EventController@register');
+Route::post('/image-upload', 'ProfileController@imageUpload');

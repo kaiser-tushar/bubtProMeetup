@@ -1,15 +1,54 @@
 @extends('layouts.profile')
 
 @section('content')
-
+<style type="text/css">
+    .img-circle {
+    border-radius: 50%;
+    height: 200px; 
+    width: 200px;
+}
+/*.btn-file{
+    border: 0px;
+}*/
+</style>
     <!-- Header -->
 
     <!-- Contact Section -->
     <?php foreach ($profile as $profile_data) {
+         $path =public_path('img').'/'.'profile.png';
+         $url = '/img/'.'profile.png';
+        if(!empty($profile_data['photo_path'])){
+            $path = public_path('img').'/users/'.$profile_data['photo_path'];
+            $url = '/img/users/'.$profile_data['photo_path'];
+        }
+        
+        if(!file_exists($path)){
+              $path =public_path('img').'/'.'profile.png';
+              $url = '/img/'.'profile.png';
+        }
+        // print_r($profile_data['photo_path']);die;
          ?>
     <section id="contact">
         <div class="container">
             <div class="row">
+                <div class="row text-center">
+                    <img class='img-circle' src='{{url($url)}}' />
+                </div>
+                <div class="row control-group">
+                     <div class="form-group">
+                        <form action="{{ url('image-upload') }}" enctype="multipart/form-data" method="POST">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                   <label class="btn btn-xs btn-default btn-file">
+                                        Change Profile Picture <input type="file" style="display: none;" name="image">
+                                    </label>
+                                    <button id="upload" type="submit" class="btn btn-success btn-xs" style="display: none;">Upload</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="col-lg-12 text-center">
                     <h2>{{  $profile_data['name'] }}'s PROFILE</h2>
                     <hr class="star-primary">

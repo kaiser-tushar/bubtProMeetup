@@ -7,6 +7,7 @@ use Auth;
 use App\Models\Profile;
 use App\Models\EducationalInfo;
 use App\Models\Work;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -23,9 +24,11 @@ class ProfileController extends Controller
     public function index()
     { 
         $id = Auth::user()->id;
-        $profile = Profile::get()->where('id',$id) ;
-        $work = Work::get()->where('id',$id) ;
-        $educational_info = EducationalInfo::get()->where('id',$id) ;
+        $profile = Profile::get()->where('user_id',$id) ;
+        $work = Work::get()->where('user_id',$id) ;
+        $educational_info = EducationalInfo::get()->where('user_id',$id) ;
+
+       
         return view('profile.index')->with(compact('profile','work','educational_info'));
     }
 
@@ -93,5 +96,28 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+     public function imageUpload(Request $request)
+    {
+        $this->validate($request, [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $id = Auth::user()->id;
+        $profile = Profile::where('user_id',$id)->first() ;
+         if(!empty($profile['photo_path'])){
+           $path = public_path('img').'/users/'.$profile['photo_path']; 
+           if(file_exists($path)){
+            unlink($path);
+           }
+         }
+        
+        $imageName =  $id.'_'.time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('img/users'), $imageName);
+
+        DB::table('profiles')->where('user_id', $id)->update(['photo_path' => $imageName]);
+
+        return back()
+            ->with('success','Image Uploaded successfully.')
+            ->with('path',$imageName);
     }
 }
