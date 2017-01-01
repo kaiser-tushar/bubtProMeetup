@@ -64,5 +64,6 @@
             </div>
         </div>
     </div>
+    <div class="row" style="height: 200px;"></div>
 </div>
 @endsection

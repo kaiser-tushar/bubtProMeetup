@@ -52,5 +52,5 @@
         <!-- /.container-fluid -->
     </nav>
     <!-- Header -->
-    <header style="background: white;padding-top: 100px;">
-    </header>
+    {{-- <header style="background: white;padding-top: 50px;">
+    </header> --}}
