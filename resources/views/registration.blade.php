@@ -18,8 +18,9 @@
         </div>
     </header>
 
-   
-
+    <section id="register">
+   @include('partials.register')
+   </section>
 
     <!-- Contact Section -->
     <section id="contact">
