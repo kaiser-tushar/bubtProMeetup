@@ -6,7 +6,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">BUBT IT Professional Meetup 2017</a>
+                <a class="navbar-brand" href="/">BUBT IT Professional Meetup 2017</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,7 +30,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu" role="menu" style="background: black">
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
