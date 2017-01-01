@@ -18,12 +18,6 @@
         </div>
     </header>
 
-    <!-- Portfolio Grid Section -->
-    @if (Auth::guest())
-   <section id="register">
-        @include('partials.register')
-    </section>
-    @endif
    
 
 
