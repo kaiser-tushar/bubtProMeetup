@@ -76,12 +76,37 @@
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                               <h5>presant address: {{  $profile['present_address'] }}</h3>
+                               <h5>present address: {{  $profile['present_address'] }}</h3>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>date of birth: {{  $profile['dob'] }}</h3>
+                                <h5>program: {{  $educational_info['program'] }}</h3>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <h5>department: {{  $educational_info['department'] }}</h3>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <h5>intake: {{  $educational_info['intake'] }}</h3>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <h5>Student ID Card Number: {{  $educational_info['student_id'] }}</h3>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <h5>Organization Name: {{  $work['organization_name'] }}</h3>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <h5>Designation: {{  $work['designation'] }}</h3>
                             </div>
                         </div>
                         <br>
