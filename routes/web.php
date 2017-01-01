@@ -30,3 +30,6 @@ Route::get('mail', function(Request $r) {
     $user = User::find(1);
    Mail::to($user)->send(new RegistrationConfirmation($user));
 });
+
+Route::post('/image-upload', 'ProfileController@imageUpload');
+
