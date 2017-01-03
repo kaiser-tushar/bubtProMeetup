@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'ProfileController@index');
 Route::get('/profile', 'ProfileController@index');
+Route::get('/profile/edit', 'ProfileController@edit');
+Route::post('/profile/update', 'ProfileController@update');
 Route::get('/completeMyProfile', 'HomeController@completeMyProfile');
 Route::post('/event/register', 'EventController@register');
 

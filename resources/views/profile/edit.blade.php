@@ -58,62 +58,44 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" action="{{url('/profile/update')}}" method="POST" id="contactForm" novalidate>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>name: {{  $profile['name'] }}</h3>
+                             <label>Name</label>
+                                <input type="text" class="form-control" value="{{  $profile['name'] }}" autofocus="autofocus" placeholder="Name" id="name" name="name" required="required">
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                 <h5>email: {{  $profile['email'] }}</h3>
+                                <label>Mobile Number</label>
+                                <input type="tel" class="form-control" value="{{  $profile['mobile'] }}" placeholder="Mobile Number" name="mobile" id="mobile" required="required">
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                               <h5>mobile: {{  $profile['mobile'] }}</h3>
+                                <label>Present Address</label>
+                                <input type="tel" class="form-control" value="{{  $profile['present_address'] }}" placeholder="Present Address" name="present_address" id="present_address" required="required">
+                            </div>
+                        </div>
+                   
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                 <label>Organization Name</label>
+                                <input type="text" class="form-control" value="{{  $work['organization_name'] }}" placeholder="Organization Name" name="organization_name" id="organization_name" required="required">
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                               <h5>present address: {{  $profile['present_address'] }}</h3>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>program: {{  $educational_info['program'] }}</h3>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>department: {{  $educational_info['department'] }}</h3>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>intake: {{  $educational_info['intake'] }}</h3>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>Student ID Card Number: {{  $educational_info['student_id'] }}</h3>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>Organization Name: {{  $work['organization_name'] }}</h3>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <h5>Designation: {{  $work['designation'] }}</h3>
+                                 <label>Designation</label>
+                                <input type="text" class="form-control" value="{{  $work['designation'] }}" placeholder="Designation" name="designation" id="designation" required="required">
                             </div>
                         </div>
                         <br>
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                 <a type="button" id="edit" class="btn btn-success btn-lg" href="{{ url('profile/edit') }}">Edit</a>
+                               <button type="submit" class="btn btn-success btn-lg">Update</button>
                             </div>
                         </div>
                     </form>

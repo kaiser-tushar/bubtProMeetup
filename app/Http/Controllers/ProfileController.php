@@ -70,9 +70,12 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $id = Auth::user()->id;
+        $profile = Profile::where('user_id',$id)->first() ;
+        $work = Work::where('user_id',$id)->first() ;
+        return view('profile.edit')->with(compact('profile','work'));
     }
 
     /**
@@ -82,9 +85,27 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       $requestData= $request->all();
+        if(!empty($requestData['name'] && $requestData['mobile'] && $requestData['present_address'] && $requestData['organization_name'] && $requestData['designation']))
+         {
+            $id = Auth::user()->id;
+            $profile = Profile::where('user_id',$id)->first() ;
+            $work = Work::where('user_id',$id)->first() ;
+            $profile->name= $requestData['name'];
+            $profile->mobile= $requestData['mobile'];
+            $profile->present_address= $requestData['present_address'];
+            $work->organization_name= $requestData['organization_name'];
+            $work->designation= $requestData['designation'];
+            $profile->update();
+            $work->update();
+            return redirect('/home');
+         }
+         else
+         {
+            return redirect('profile/edit');
+        }
     }
 
     /**
