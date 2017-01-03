@@ -1,6 +1,7 @@
 @extends('layouts.profile')
 
 @section('content')
+<section id="login">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -66,4 +67,5 @@
     </div>
     <div class="row" style="height: 200px;"></div>
 </div>
+</section>
 @endsection

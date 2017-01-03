@@ -14,25 +14,11 @@
     <!-- Header -->
 
     <!-- Contact Section -->
-    <?php
-         $path =public_path('img').'/'.'profile.png';
-         $url = '/img/'.'profile.png';
-        if(!empty($profile['photo_path'])){
-            $path = public_path('img').'/users/'.$profile['photo_path'];
-            $url = '/img/users/'.$profile['photo_path'];
-        }
-        
-        if(!file_exists($path)){
-              $path =public_path('img').'/'.'profile.png';
-              $url = '/img/'.'profile.png';
-        }
-        // print_r($profile_data['photo_path']);die;
-         ?>
-    <section id="contact">
+    <section id="eidtProfile">
         <div class="container">
             <div class="row">
                 <div class="row text-center">
-                    <img class='img-circle' src='data:{{mime_content_type($path)}};base64,{{base64_encode(file_get_contents($path))}}'/>
+                    <img class='img-circle' src='data:{{$user_image_info["mime_type"]}};base64,{{base64_encode($user_image_info["img_file"])}}'/>
                 </div>
                 <div class="row control-group">
                      <div class="form-group">
