@@ -3,16 +3,17 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
     <!-- Header -->
-    <header>
-        <div class="container">
+    <header  style="background-color: black">
+        <div class="container" style="padding-top: 180px;">
             <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
-                    <div class="intro-text">
-                        <span class="name">BUBT IT Professional Meetup 2017</span>
-                        <hr class="star-light">
+                <div class="col-lg-12" >
+                     <!-- <div class="intro-text">
+                        <span class="name">BUBT IT Professionals Meetup 2017</span>
+                        <hr class="star-light" style="max-width: 100%">
                         <span class="skills">BUBT Professionals is a platform where students of BUBT connect with each other and help to build an awesome community.BUBT IT Professional Meetup 2017 is going to happen on 10th February, 2017 </span>
-                    </div>
+                    </div> -->
+                    <img class="img-responsive" src="img/cover_photo.jpg" alt="" width="100%">
+                   
                 </div>
             </div>
         </div>
