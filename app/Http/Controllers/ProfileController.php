@@ -8,6 +8,7 @@ use App\Models\Profile;
 use App\Models\EducationalInfo;
 use App\Models\Work;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -28,8 +29,9 @@ class ProfileController extends Controller
         $work = Work::where('user_id',$id)->first() ;
         $educational_info = EducationalInfo::where('user_id',$id)->first() ;
 
+		$user_image_info = $this->getProfilePic($profile);    
        
-        return view('profile.index')->with(compact('profile','work','educational_info'));
+        return view('profile.index')->with(compact('profile','work','educational_info','user_image_info'));
     }
 
     /**
@@ -70,9 +72,14 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $id = Auth::user()->id;
+        $profile = Profile::where('user_id',$id)->first() ;
+        $work = Work::where('user_id',$id)->first() ;
+
+        $user_image_info = $this->getProfilePic($profile);
+        return view('profile.edit')->with(compact('profile','work','user_image_info'));
     }
 
     /**
@@ -82,9 +89,27 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       $requestData= $request->all();
+        if(!empty($requestData['name'] && $requestData['mobile'] && $requestData['present_address'] && $requestData['organization_name'] && $requestData['designation']))
+         {
+            $id = Auth::user()->id;
+            $profile = Profile::where('user_id',$id)->first() ;
+            $work = Work::where('user_id',$id)->first() ;
+            $profile->name= $requestData['name'];
+            $profile->mobile= $requestData['mobile'];
+            $profile->present_address= $requestData['present_address'];
+            $work->organization_name= $requestData['organization_name'];
+            $work->designation= $requestData['designation'];
+            $profile->update();
+            $work->update();
+            return redirect('/home');
+         }
+         else
+         {
+            return redirect('profile/edit');
+        }
     }
 
     /**
@@ -119,5 +144,24 @@ class ProfileController extends Controller
         return back()
             ->with('success','Image Uploaded successfully.')
             ->with('path',$imageName);
+    }
+    /**
+     * @parameters profile data of perticular User
+     */
+    protected function getProfilePic($profile){
+	     $path =public_path('img').DIRECTORY_SEPARATOR.'profile.png';
+         $url = '/img/'.'profile.png';
+        if(!empty($profile['photo_path'])){
+            $path = public_path('img').DIRECTORY_SEPARATOR.'users'.DIRECTORY_SEPARATOR.$profile['photo_path'];
+            $url = '/img/users/'.$profile['photo_path'];
+        }
+        
+        if(!file_exists($path)){
+              $path =public_path('img').DIRECTORY_SEPARATOR.'profile.png';
+              $url = '/img/'.'profile.png';
+        }
+        $mime_type =  File::extension($path);
+        $file = file_get_contents($path);
+        return ['path' => $path,'url' => $url, 'mime_type' => $mime_type ,'img_file' => $file];
     }
 }

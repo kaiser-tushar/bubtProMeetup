@@ -70,9 +70,10 @@
                                  <select class="form-control" id="department" name="department">
                                     <option value="0">Select Department</option>
                                     <option value="CSE">CSE</option>
+                                    <option value="CSIT">CSIT</option>
                                     <option value="EEE">EEE</option>
                                     <option value="BBA">BBA</option>
-                                    <option value="Textile">Textile</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <br>
@@ -82,7 +83,7 @@
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                  <select class="form-control" id="intake" name="intake">
                                     <option value="0">Select Intake</option>
-                                    @for($i = 1;$i <= 30 ; $i++)
+                                    @for($i = 1;$i <= 40 ; $i++)
                                     <option value="{{$i}}">{{$i}}</option>
                                     @endfor
                                 </select>

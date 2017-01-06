@@ -1,3 +1,9 @@
+<style>
+    .navbar-custom .navbar-nav li a:hover {
+    color: #deab3a;
+    /*background: #deab3a;*/
+}
+</style>
 <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
