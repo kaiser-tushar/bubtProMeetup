@@ -2,11 +2,14 @@
 <style>
 .navbar-custom .navbar-nav li.active a, .navbar-custom .navbar-nav li.active a:active, .navbar-custom .navbar-nav li.active a:focus, .navbar-custom .navbar-nav li.active a:hover {
     color: #fff;
-    background: #deab3a;
+    background: #ddab46;
 }
  .navbar-custom .navbar-nav li a:hover {
-    color: #deab3a;
-    /*background: #deab3a;*/
+    color: #ddab46;
+    
+}
+.navbar-custom{
+    background: #0f0f19;
 }
 </style>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -16,7 +19,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">BUBT IT Professionals Meetup 2017</a>
+                <a class="navbar-brand" href="#page-top" id="app_title">BUBT IT Professionals Meetup 2017</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
