@@ -8,7 +8,7 @@
     color: #ddab46;
     
 }
-.navbar-custom{
+.navbar-custom, .dropdown, .dropdown .open,.dropdown-menu {
     background: #0f0f19;
 }
 </style>

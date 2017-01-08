@@ -7,7 +7,7 @@
     color: #ddab46;
     
 }
-.navbar-custom{
+.navbar-custom, .dropdown, .dropdown .open,.dropdown-menu {
     background: #0f0f19;
 }
 </style>
@@ -43,7 +43,8 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu" style="background: black">
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('/profile') }}">Profile</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
