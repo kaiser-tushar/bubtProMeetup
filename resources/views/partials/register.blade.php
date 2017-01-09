@@ -16,7 +16,7 @@
                                         {{ $errors->first('name') }}
                                     </p>
                                 @endif
-                                <input type="text" name="name" id="name" class="form-control"  placeholder="name">
+                                <input type="text" name="name" id="name" value="{{old('name')}}" class="form-control"  placeholder="name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Your Email *</label>
@@ -25,7 +25,7 @@
                                         {{ $errors->first('email') }}
                                     </p>
                                 @endif
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                <input type="email" class="form-control"  value="{{old('email')}}" name="email" id="email" placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <label for="reg_phone">Your Contact Number *</label>
@@ -34,7 +34,7 @@
                                         {{ $errors->first('reg_phone') }}
                                     </p>
                                 @endif
-                                <input type="text" class="form-control" name="reg_phone" id="reg_phone" placeholder="Contact Number">
+                                <input type="text" class="form-control"  value="{{old('reg_phone')}}" name="reg_phone" id="reg_phone" placeholder="Contact Number">
                             </div>
 
                             <div class="form-group">
@@ -44,7 +44,7 @@
                                         {{ $errors->first('present_address') }}
                                     </p>
                                 @endif
-                                <textarea type="text" class="form-control" name="present_address" id="present_address" placeholder="Contact Number"></textarea>
+                                <textarea type="text" class="form-control" name="present_address" id="present_address" placeholder="Contact Number">{{old('present_address')}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="DOB">Date of Birth</label>
@@ -54,7 +54,7 @@
                                     </p>
                                 @endif
                                 <div class="input-group date" data-provide="datepicker" data-date="{{date('Y-m-d')}}" data-date-format="yyyy-mm-dd">
-                                    <input type="text" class="form-control" id="DOB" name="DOB">
+                                    <input type="text" value="{{old('DOB')}}" class="form-control" id="DOB" name="DOB">
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-th"></span>
                                     </div>
@@ -69,8 +69,8 @@
                                 @endif
                                 <select class="form-control" id="program" name="program">
                                     <option value="0">Select Program</option>
-                                    <option value="Day">Day</option>
-                                    <option value="Evening">Evening</option>
+                                    <option value="Day" {{old('program')=='Day'?'selected':''}}>Day</option>
+                                    <option value="Evening" {{old('program')=='Evening'?'selected':''}}>Evening</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -82,11 +82,11 @@
                                 @endif
                                 <select required class="form-control" id="department" name="department">
                                     <option value="0">Select Department</option>
-                                    <option value="CSE">CSE</option>
-                                    <option value="CSIT">CSIT</option>
-                                    <option value="EEE">EEE</option>
-                                    <option value="BBA">BBA</option>
-                                    <option value="Other">Other</option>
+                                    <option value="CSE" {{old('department')=='CSE'?'selected':''}}>CSE</option>
+                                    <option value="CSIT" {{old('department')=='CSIT'?'selected':''}}>CSIT</option>
+                                    <option value="EEE" {{old('department')=='EEE'?'selected':''}}>EEE</option>
+                                    <option value="BBA" {{old('department')=='BBA'?'selected':''}}>BBA</option>
+                                    <option value="Other" {{old('department')=='Other'?'selected':''}}>Other</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -99,7 +99,7 @@
                                 <select class="form-control" id="intake" name="intake">
                                     <option value="0">Select Intake</option>
                                     @for($i = 1;$i <= 40 ; $i++)
-                                        <option value="{{$i}}">{{$i}}</option>
+                                        <option value="{{$i}}" {{old('intake')==$i?'selected':''}}>{{$i}}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -110,7 +110,7 @@
                                         {{ $errors->first('id_no') }}
                                     </p>
                                 @endif
-                                <input type="text" class="form-control" placeholder="Student ID card Number" id="id_no" name="id_no">
+                                <input type="text" value="{{old('id_no')}}" class="form-control" placeholder="Student ID card Number" id="id_no" name="id_no">
                             </div>
 
                             <div class="form-group">
@@ -120,7 +120,7 @@
                                         {{ $errors->first('org_name') }}
                                     </p>
                                 @endif
-                                <input type="text" class="form-control" placeholder="Organization Name" id="org_name" name="org_name">
+                                <input type="text" value="{{old('org_name')}}" class="form-control" placeholder="Organization Name" id="org_name" name="org_name">
                             </div>
 
                             <div class="form-group">
@@ -130,7 +130,7 @@
                                         {{ $errors->first('designation') }}
                                     </p>
                                 @endif
-                                <input type="text" class="form-control" placeholder="Your Designation" id="designation" name="designation">
+                                <input type="text" value="{{old('designation')}}" class="form-control" placeholder="Your Designation" id="designation" name="designation">
                             </div>
 
                             <div class="form-group">
@@ -140,7 +140,7 @@
                                         {{ $errors->first('website') }}
                                     </p>
                                 @endif
-                                <input type="text" class="form-control" placeholder="Your Website" id="website" name="website">
+                                <input type="text" value="{{old('website')}}" class="form-control" placeholder="Your Website" id="website" name="website">
                             </div>
 
                             <div class="form-group">
@@ -150,7 +150,7 @@
                                         {{ $errors->first('fb_id') }}
                                     </p>
                                 @endif
-                                <input type="text" class="form-control" placeholder="Facebook URL" id="fb_id" name="fb_id">
+                                <input type="text" value="{{old('fb_id')}}" class="form-control" placeholder="Facebook URL" id="fb_id" name="fb_id">
                             </div>
 
                             <div class="form-group">
@@ -181,7 +181,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg" id="sbmt">Register Me</button>
+                                <button type="submit" class="btn btn-success btn-lg pull-right" id="sbmt">Register</button>
                             </div>
                         </div>
                     </form>
