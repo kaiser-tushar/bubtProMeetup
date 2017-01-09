@@ -54,6 +54,12 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'reg_phone' => 'required|regex:/^(?:\+?88)?01[15-9]\d{8}$/',
+            'program'   => 'required',
+            'department'    => 'required',
+            'id_no' => 'required',
+            'website'   => 'url',
+            'fb_id' =>'url|regex:/(https?:\/\/)?([\w\.]*)facebook\.com\/([a-zA-Z0-9\._]*)$/'
         ]);
     }
 

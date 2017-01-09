@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('registration');
+    return view('welcome');
 });
 
 Auth::routes();
+
+Route::get('register', function() {
+    return view('registration');
+});
 
 Route::get('/home', 'ProfileController@index');
 Route::get('/profile', 'ProfileController@index');
