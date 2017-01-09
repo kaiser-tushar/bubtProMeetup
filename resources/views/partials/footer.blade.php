@@ -1,3 +1,8 @@
+<style type="text/css">
+    footer .footer-below {
+  background-color: #0f0f19;
+}
+</style>
     <!-- Footer -->
     <footer class="text-center">
         <!-- <div class="footer-above">
@@ -53,5 +58,14 @@
         </a>
     </div>
 
-   
+   <script>
+       $(window).scroll(function(event){
+               var st = $(this).scrollTop();
+               if (st > 51){
+                   $("#app_title").text("#BPM 2017").show('slow');
+               } else {
+                   $("#app_title").text("BUBT IT Professional Meetup 2017");
+               }
+            });
+   </script>
 

@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
     <!-- Header -->
-    <header  style="background-color: black">
+    <header  style="background-color: #0f0f19;">
         <div class="container" style="padding-top: 180px;">
             <div class="row">
                 <div class="col-lg-12" >
