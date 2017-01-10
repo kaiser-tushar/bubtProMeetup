@@ -44,7 +44,7 @@
                                         {{ $errors->first('present_address') }}
                                     </p>
                                 @endif
-                                <textarea type="text" class="form-control" name="present_address" id="present_address" placeholder="Contact Number">{{old('present_address')}}</textarea>
+                                <textarea type="text" class="form-control" name="present_address" id="present_address" placeholder="Present Address">{{old('present_address')}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="DOB">Date of Birth</label>
@@ -140,7 +140,7 @@
                                         {{ $errors->first('website') }}
                                     </p>
                                 @endif
-                                <input type="text" value="{{old('website')}}" class="form-control" placeholder="Your Website" id="website" name="website">
+                                <input type="text" value="{{old('website')}}" class="form-control" placeholder="Your Website (http://www.myself.com)" id="website" name="website">
                             </div>
 
                             <div class="form-group">
@@ -150,7 +150,7 @@
                                         {{ $errors->first('fb_id') }}
                                     </p>
                                 @endif
-                                <input type="text" value="{{old('fb_id')}}" class="form-control" placeholder="Facebook URL" id="fb_id" name="fb_id">
+                                <input type="text" value="{{old('fb_id')}}" class="form-control" placeholder="Facebook URL (https://www.facebook.com/hero.alom)" id="fb_id" name="fb_id">
                             </div>
 
                             <div class="form-group">

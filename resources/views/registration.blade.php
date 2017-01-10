@@ -10,13 +10,20 @@
    </section>
 
 
-    <script type="text/javascript" src="/js/jquery.countdown.min.js"></script>
     <script type="text/javascript" src="/js/register.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript">
-          $("#countdown").countdown("2017/02/10", function(event) {
-            $(this).text(event.strftime('%-m month%!m %-d day%!d %-H hour%!H %M min%!M remaining'));
-          });
+    function getTime(){
+        var date1 = new Date();
+    var date2 = new Date("02/05/2017");
+    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    $("#countdown").html(diffDays+" days remaining")
+    }
+    getTime();
+          // $("#countdown").countdown(new Date("02/10/2017"), function(event) {
+          //   $(this).html(event.strftime('%-m month%!m %-d day%!d %-H hour%!H remaining'));
+          // });
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -24,6 +31,7 @@
                 '#8B4789','#FF00FF','#7A378B','#9400D3','#8A2BE2'
                 ];
                 setInterval(function(){
+                    getTime();
                     var val = color[Math.floor((Math.random() * 10)+1)%10];
                     // console.log(val);
                     $("#countdown").attr('style', "color:"+val);
