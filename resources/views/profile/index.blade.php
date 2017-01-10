@@ -93,10 +93,14 @@
                             </div>
                         </div>
                         <br>
-                        <div id="success"></div>
                         <div class="row">
-                            <div class="form-group col-xs-12">
-                                 <a type="button" id="edit" class="btn btn-success btn-lg" href="{{ url('profile/edit') }}">Edit</a>
+                            <div class="col-md-12 text-center">
+                                <div class=" col-xs-6 col-md-6">
+                                     <a  id="edit" class="btn btn-success btn-lg" href="{{ url('profile/edit') }}">Edit</a>
+                                </div>
+                                {{-- <div class="col-xs-6 col-md-6 ">
+                                     <a  id="payment" class="btn btn-danger btn-lg" href="{{ url('payment') }}">Confirm Payment</a>
+                                </div> --}}
                             </div>
                         </div>
                     </form>

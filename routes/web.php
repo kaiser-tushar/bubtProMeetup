@@ -25,11 +25,11 @@ Route::get('register', function() {
     return view('registration');
 });
 
+Route::get('/payment', 'HomeController@completeMyPayment');
 Route::get('/home', 'ProfileController@index');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::post('/profile/update', 'ProfileController@update');
-Route::get('/completeMyProfile', 'HomeController@completeMyProfile');
 Route::post('/event/register', 'EventController@register');
 
 Route::get('mail', function(Request $r) {
